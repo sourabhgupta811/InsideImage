@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void capture(View v){
+        progressBar.setVisibility(View.VISIBLE);
         camera.captureImage();
     }
     private void getLabelsForImage(Bitmap bitmap) {
-        progressBar.setVisibility(View.VISIBLE);
         FirebaseVisionImage image=FirebaseVisionImage.fromBitmap(bitmap);
         FirebaseVisionLabelDetector detector= FirebaseVision.getInstance().getVisionLabelDetector();
         Task<List<FirebaseVisionLabel>> listTask = detector.detectInImage(image);
